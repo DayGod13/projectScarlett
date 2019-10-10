@@ -8,6 +8,11 @@
     border: 1px solid #ccc;
     border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
     margin: 20px;
+    padding: 10px;
+  }
+
+  .booyah-box h2, .booyah-box h1 {
+    margin: 10px;
   }
 
   .navbar {
@@ -66,4 +71,9 @@
       padding-left: 5%;
       padding-right: 5%;
       color: white;
+  }
+
+  .logged-in {
+      color: white;
+      padding-right: 5px;
   }
