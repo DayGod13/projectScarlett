@@ -1,7 +1,7 @@
 <br />
 <div class="booyah-box col-10 offset-1">
   <h1>Create your profile</h1>
-  <%= simple_form_for @profile, url: user_profiles_path(current_user.profile_id) do |f| %>
+  <%= simple_form_for @profile, url: user_profiles_path(profile_id) do |f| %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :nickname %>

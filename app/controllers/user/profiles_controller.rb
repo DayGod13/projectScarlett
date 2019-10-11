@@ -19,7 +19,7 @@ class User::ProfilesController < ApplicationController
 
     def require_authorized_for_user_profile
         if user_profile.user != current_user
-            render plain: "Unauhtorized", status: :Unauhtorized
+            render plain: "Unauthorized", status: :unauthorized
         end
     end
 
