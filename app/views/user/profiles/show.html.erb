@@ -3,3 +3,21 @@
 <h1>Hello, <%= @profile.first_name %> </h1>
 <h2> You are <%= @profile.age %> </h2>
 </div>
+
+
+
+
+<br />
+<div class='booyah-box col-4 offset-1'>
+<%= image_tag @profile.avatar.url, class: 'img-fluid' %>
+  <h1>Upload a Photo</h1>
+  <%= simple_form_for @profile, url: user_profile_path(@profile) do |f| %>
+    <%= f.file_field :avatar %>
+    
+    <br />
+    <br />
+    <%= f.submit "Upload", class: 'btn btn-primary' %>
+    <br />
+  <% end %>
+  <br />
+</div>

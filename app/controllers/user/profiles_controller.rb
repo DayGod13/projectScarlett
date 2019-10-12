@@ -21,6 +21,13 @@ class User::ProfilesController < ApplicationController
     def show
         @profile = Profile.find(params[:id])
     end
+    
+    def update
+        @profile = Profile.find(params[:id])
+        @profile.update_attributes(profile_params)
+        redirect_to user_profile_path(@profile)
+    end
+
 
     private
 
@@ -36,6 +43,6 @@ class User::ProfilesController < ApplicationController
     # end
 
     def profile_params
-        params.require(:profile).permit(:first_name, :last_name, :nickname, :age, :sex)
+        params.require(:profile).permit(:first_name, :last_name, :nickname, :age, :sex, :avatar)
     end
 end

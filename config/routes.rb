@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'static_pages#index'
   resources :profiles, only: [:index, :show]
   namespace :user do
-    resources :profiles, only: [:new, :create, :show]
+    resources :profiles, only: [:new, :create, :show, :update]
   end
 
 end
