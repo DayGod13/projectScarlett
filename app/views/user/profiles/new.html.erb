@@ -6,7 +6,9 @@
     <%= f.input :last_name %>
     <%= f.input :nickname %>
     <%= f.input :age %>
-    <%= f.input :sex %>
+    <h6>Sex</h6>
+    <%= f.select :sex, options_for_select([["Select One", ""], "Male", "Female", "Prefer not to Specify"]), :class => 'genForm_dropBox' %>
+    <br />
     <br />
     <%= f.submit "Create", class: 'btn btn-primary' %>
     <br />

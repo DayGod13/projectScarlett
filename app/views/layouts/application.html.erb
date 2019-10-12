@@ -31,7 +31,20 @@
             <li class="nav-item">
               <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
             </li>
+          
+            
           <% end %>
+          
+            <li class="nav-item">
+                <%= link_to 'View your Profile', user_profile_path(current_user.id), class: 'nav-link' %>
+            </li>
+          
+            <li class="nav-item">
+                <%= link_to 'Create your Profile', new_user_profile_path, class: 'nav-link' %>
+            </li>
+          
+
+
         </ul>
         <% if user_signed_in? %>
         <p class="logged-in">You are currently signed in as <%=current_user.email%>!</p>

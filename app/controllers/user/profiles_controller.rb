@@ -1,6 +1,8 @@
 class User::ProfilesController < ApplicationController
+
     before_action :authenticate_user!, on: :create
     # before_action :require_authorized_for_user_profile, on: :create
+    attr_accessor :profile
 
     def new
         @profile = Profile.new
@@ -22,16 +24,16 @@ class User::ProfilesController < ApplicationController
 
     private
 
-    def require_authorized_for_user_profile
-        if user_profile.user != current_user
-            render plain: "Unauthorized", status: :unauthorized
-        end
-    end
+    # def require_authorized_for_user_profile
+    #     if user_profile.user != current_user
+    #         render plain: "Unauthorized", status: :unauthorized
+    #     end
+    # end
 
-    helper_method :user_profile
-    def user_profile
-        @user_profile ||= Profile.find(params[:profile_id])
-    end
+    # helper_method :user_profile
+    # def user_profile
+    #     @user_profile ||= Profile.find(params[:profile_id])
+    # end
 
     def profile_params
         params.require(:profile).permit(:first_name, :last_name, :nickname, :age, :sex)
