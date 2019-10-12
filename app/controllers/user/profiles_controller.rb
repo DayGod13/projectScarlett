@@ -1,5 +1,5 @@
 class User::ProfilesController < ApplicationController
-    # before_action :authenticate_user!, on: :create
+    before_action :authenticate_user!, on: :create
     # before_action :require_authorized_for_user_profile, on: :create
 
     def new
@@ -7,8 +7,13 @@ class User::ProfilesController < ApplicationController
     end
 
     def create
-        @profile = current_user.profile.create(profile_params)
-        # redirect_to user_profile_path(user_profile)
+        @profile = current_user.create_profile(profile_params)
+        
+        if @profile.valid?
+            redirect_to user_profile_path(@profile)
+        else
+            render :new, status: :unprocessable_entity
+        end
     end
 
     def show
