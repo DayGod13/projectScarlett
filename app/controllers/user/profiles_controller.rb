@@ -1,7 +1,7 @@
 class User::ProfilesController < ApplicationController
 
     before_action :authenticate_user!, on: :create
-    before_action :get_profile, only [:edit, :update]
+    before_action :get_profile, only: [:edit, :update]
     # before_action :require_authorized_for_user_profile, on: :create
     attr_accessor :profile, :user_profile
 
