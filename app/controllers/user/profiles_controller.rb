@@ -1,7 +1,7 @@
 class User::ProfilesController < ApplicationController
 
     before_action :authenticate_user!, on: :create
-    before_action :get_profile, only: [:edit, :update]
+    # before_action :get_profile, only: [:edit, :update]
     # before_action :require_authorized_for_user_profile, on: :create
     attr_accessor :profile, :user_profile
 
@@ -47,7 +47,7 @@ class User::ProfilesController < ApplicationController
         params.require(:profile).permit(:first_name, :last_name, :nickname, :age, :sex, :avatar)
     end
 
-    def get_profile
-        @profile = current_user.profile
-    end 
+    # def get_profile
+    #     @profile = current_user.profile
+    # end 
 end
