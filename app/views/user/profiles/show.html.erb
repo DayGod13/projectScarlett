@@ -9,12 +9,9 @@
 
 <br />
 <div class='booyah-box col-4 offset-1'>
-<%# <% if @profile.avatar.present? %> %>
-<%# <%= image_tag @profile.avatar.url, class: 'img-fluid' %> %>
-<%# <% else %> %>
-<%# <% end %> %>
-<%= @profile.avatar.url %>
-  <h1>Upload a Photo</h1> %>
+<%= image_tag @profile.avatar.url, class: 'img-fluid' %>
+
+  <h1>Upload a Photo</h1> 
   <%= simple_form_for @profile, url: user_profile_path(@profile) do |f| %>
     <%= f.file_field :avatar %>
     
