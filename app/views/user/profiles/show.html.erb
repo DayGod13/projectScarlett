@@ -9,12 +9,15 @@
 
 <br />
 <div class='booyah-box col-4 offset-1'>
+
+<!-- I added the below IF statement because heroku could not handle the nil value in the avatar field and it broke the profile page -->
+
 <% if @profile.avatar.present? %>
-    <%= image_tag @profile.avatar.url, class: 'img-fluid'%>
+    <%= image_tag @profile.avatar.url, class: 'img-fluid', size: '300x180'%>
 <% end %>
 
 
-  <h1>Upload a Photo</h1> 
+  <h4>Upload a Photo</h4> 
   <%= simple_form_for @profile, url: user_profile_path(@profile) do |f| %>
     <%= f.file_field :avatar %>
     
@@ -25,3 +28,25 @@
   <% end %>
   <br />
 </div> 
+
+
+
+<div id='gif' class='booyah-box col-4 offset-1'>
+<h3>Get motivated!!!</h3>
+<div id='gifs'>
+<script>
+
+var xhr = $.get("http://api.giphy.com/v1/gifs/random?&api_key=kkWFta9smawk96fwwMuzj15LL36vz9Kx&tag=workout&limit=1");
+xhr.done(function(data) { console.log("success got data", data); 
+url = data.data.images.downsized.url; 
+console.log(url);
+document.getElementById('gifs').innerHTML = "<img src=" + url + ">";});
+
+
+
+
+</script>
+</div>
+</div>
+    
+<!-- api.giphy.com -->
