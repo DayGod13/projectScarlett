@@ -36,7 +36,7 @@
 <div id='gifs'>
 <script>
 
-var xhr = $.get("http://api.giphy.com/v1/gifs/random?&api_key=kkWFta9smawk96fwwMuzj15LL36vz9Kx&tag=workout&limit=1");
+var xhr = $.get("https://api.giphy.com/v1/gifs/random?&api_key=kkWFta9smawk96fwwMuzj15LL36vz9Kx&tag=workout&limit=1");
 xhr.done(function(data) { console.log("success got data", data); 
 url = data.data.images.downsized.url; 
 console.log(url);
