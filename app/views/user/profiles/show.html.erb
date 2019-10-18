@@ -1,4 +1,4 @@
-
+<%= javascript_include_tag "https://api.giphy.com/v1/gifs/random?&api_key=#{ENV['GIPHY_KEY']}" %>
 <div class='booyah-box col-10 offset-1'>
 <h1>Hello <%= @profile.first_name %>, It's a beautiful day to burn some calories! </h1>
 <h2> You are <%= @profile.age %> and ready to go!</h2>
@@ -8,7 +8,8 @@
 
 
 <br />
-<div class='booyah-box col-4 offset-1'>
+<div class="row">
+<div class='booyah-box col-3 offset-1'>
 
 <!-- I added the below IF statement because heroku could not handle the nil value in the avatar field and it broke the profile page -->
 
@@ -29,18 +30,39 @@
   <br />
 </div> 
 
+<div class='comments booyah-box col-3 offset-1'>
+<h1>Create your profile</h1>
+  <%= simple_form_for @profile, url: user_profiles_path(@profile) do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :nickname %>
+    <%= f.input :age %>
+    <h6>Sex</h6>
+    <%= f.select :sex, options_for_select([["Select One", ""], "Male", "Female", "Prefer not to Specify"]), :class => 'genForm_dropBox' %>
+    <br />
+    <br />
+    <%= f.submit "Create", class: 'btn btn-primary' %>
+    <br />
+  <% end %>
+</div>
+
+</div>
 
 
-<div id='gif' class='booyah-box col-4 offset-1'>
+<div class='row'>
+<div id='gif' class='booyah-box col-3 offset-1'>
 <h3>Get motivated!!!</h3>
 <div id='gifs'>
-<script>
 
-var xhr = $.get("https://api.giphy.com/v1/gifs/random?&api_key=kkWFta9smawk96fwwMuzj15LL36vz9Kx&tag=workout&limit=1");
+<!-- api.giphy.com -->
+
+<script async defer>
+
+var xhr = $.get("https://api.giphy.com/v1/gifs/random?&api_key=<%=ENV['GIPHY_KEY']%>&tag=workout&limit=1");
 xhr.done(function(data) { console.log("success got data", data); 
 url = data.data.images.downsized.url; 
 console.log(url);
-document.getElementById('gifs').innerHTML = "<img src=" + url + ">";});
+document.getElementById('gifs').innerHTML = "<img class='giphy' src=" + url + ">";});
 
 
 
@@ -48,5 +70,8 @@ document.getElementById('gifs').innerHTML = "<img src=" + url + ">";});
 </script>
 </div>
 </div>
+
+</div>
+
     
-<!-- api.giphy.com -->
+
