@@ -42,7 +42,7 @@
   <div>
     <blockquote>
         <%= comment.comment %>
-      <small> - <%= current_user.profile.first_name%> <%= current_user.profile.last_name%>, <%= comment.created_at%></small>
+      <small> - <%= comment.user.profile.first_name%> <%= comment.user.profile.last_name%>, <%= comment.created_at%></small>
     </blockquote>
   </div>
 <% end %>
