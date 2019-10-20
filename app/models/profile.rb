@@ -1,5 +1,6 @@
 class Profile < ApplicationRecord
     belongs_to :user
+    has_many :comments
     mount_uploader :avatar, AvatarUploader
 
     validates :first_name, presence: true

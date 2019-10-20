@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_one :profile
+  has_many :comments
   # has_many :friend
   
   # Include default devise modules. Others available are:

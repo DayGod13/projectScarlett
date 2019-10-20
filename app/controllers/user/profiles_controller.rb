@@ -3,6 +3,10 @@ class User::ProfilesController < ApplicationController
     before_action :authenticate_user!, on: :create
     # before_action :get_profile, only: [:edit, :update]
     # before_action :require_authorized_for_user_profile, on: :create
+
+    def index
+        @profile = Profile.all
+    end
     
 
     def new
@@ -21,6 +25,7 @@ class User::ProfilesController < ApplicationController
 
     def show
         @profile = Profile.find(params[:id])
+        @comment = Comment.new
     end
     
     def update

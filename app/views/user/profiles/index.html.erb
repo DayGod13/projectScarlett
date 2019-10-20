@@ -1,0 +1,16 @@
+<div id="explore">
+<h1>Explore Other Profiles</h1>
+</div>
+
+<% @profile.each do |profile| %>
+  <div class="booyah-box col-3 offset-1">
+    <blockquote>
+    <%= image_tag profile.avatar.url, class: 'img-fluid', size: '90x45'%>
+        Name: <%= profile.first_name %> <%= profile.last_name %>, Age: <%= profile.age %>
+        <%= link_to 'View Profile', user_profile_path(profile.id), class: 'nav-link' %>
+
+    
+      
+    </blockquote>
+  </div>
+<% end %>

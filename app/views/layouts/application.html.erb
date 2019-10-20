@@ -38,6 +38,9 @@
             <li class="nav-item">
                 <%= link_to 'View your Profile', user_profile_path(current_user.profile), class: 'nav-link' %>
             </li>
+            <li>
+                <%= link_to 'Explore Other Profiles', user_profiles_path, class: 'nav-link' %>
+            </li>
           <% elsif user_signed_in? && current_user.present? %>
             <li class="nav-item">
                 <%= link_to 'Create your Profile', new_user_profile_path, class: 'nav-link' %>
@@ -49,7 +52,7 @@
 
         </ul>
         <% if user_signed_in? %>
-        <p class="logged-in">You are currently signed in as <%=current_user.email%>!</p>
+        <p class="logged-in">You are currently signed in as <%=current_user.profile.first_name%>!</p>
         <% end %>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
