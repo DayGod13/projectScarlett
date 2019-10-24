@@ -1,6 +1,6 @@
 <%= javascript_include_tag "https://api.giphy.com/v1/gifs/random?&api_key=#{ENV['GIPHY_KEY']}" %>
 <div class='booyah-box col-10 offset-1'>
-<% if current_user.id = @profile.user.id %>
+<% if current_user.id == @profile.user_id %>
 <h1>Hello <%= @profile.first_name %>, It's a beautiful day to burn some calories! </h1>
 <% else %>
 <h1>Hello <%= current_user.profile.first_name %>, this is <%= @profile.first_name %>'s account! </h1>
