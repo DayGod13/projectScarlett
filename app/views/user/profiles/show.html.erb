@@ -21,7 +21,7 @@
     <%= image_tag @profile.avatar.url, class: 'img-fluid', size: '300x180'%>
 <% end %>
 
-
+<% if current_user.id == @profile.user.id %>
   <h4>Upload a Photo</h4> 
   <%= simple_form_for @profile, url: user_profile_path(@profile) do |f| %>
     <%= f.file_field :avatar %>
@@ -32,6 +32,8 @@
     <br />
   <% end %>
   <br />
+  <% else %>
+  <% end %>
 </div> 
 
 <div class='comments booyah-box col-3 offset-1'>
