@@ -19,6 +19,8 @@
 
 <% if @profile.avatar.present? %>
     <%= image_tag @profile.avatar.url, class: 'img-fluid', size: '300x180'%>
+<% else %>
+  <i class="fas fa-user-astronaut"></i>
 <% end %>
 
 <% if current_user.id == @profile.user.id %>
